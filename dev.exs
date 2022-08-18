@@ -9,7 +9,15 @@ end
 Surface.Catalogue.Server.start(
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:catalogue, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:catalogue, ~w(--sourcemap=inline --watch)]},
+    npx: [
+      "tailwindcss",
+      "-i",
+      "./assets/css/app.css",
+      "-o",
+      "./priv/catalogue/assets/tailwind.css",
+      "--watch"
+    ]
   ],
   reloadable_compilers: [:phoenix, :elixir, :surface],
   http: [port: 4001],
