@@ -13,10 +13,12 @@ Surface.Catalogue.Server.start(
     npx: [
       "tailwindcss",
       "-i",
-      "./assets/css/app.css",
+      "./css/app.css",
+      "--minify",
       "-o",
-      "./priv/catalogue/assets/tailwind.css",
-      "--watch"
+      "../priv/catalogue/assets/tailwind.css",
+      "--watch",
+      cd: Path.expand("./assets", __DIR__)
     ]
   ],
   reloadable_compilers: [:phoenix, :elixir, :surface],
