@@ -27,3 +27,6 @@ lilly-*.tar
 
 # Ignore generated js hook files for components
 assets/js/_hooks/
+
+# Ignore node_modules dir
+assets/node_modules
