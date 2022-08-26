@@ -27,8 +27,8 @@ defmodule Lilly.Catalogue.DescriptionList.Example01 do
 
     ~F"""
     {#for book <- @books}
-      <DescriptionList heading="Book Information" subheading="Details" item={%{author: book.author, title: book.title, published: book.published, genre: book.genre}} striped>
-        <DescriptionRow field={:title} />
+      <DescriptionList heading="Book Information" subheading="Details" item={book} striped>
+        <DescriptionRow field={:title} label="Book Title"/>
         <DescriptionRow field={:author} />
         <DescriptionRow field={:genre} class="text-blue-900 bg-red-100"/>
         <DescriptionRow field={:published} />
