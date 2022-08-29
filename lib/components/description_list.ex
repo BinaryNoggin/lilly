@@ -1,6 +1,8 @@
 defmodule Lilly.Components.DescriptionList do
   use Surface.Component
 
+  alias Lilly.Helpers
+
   @moduledoc """
   A simple description list
   """
@@ -30,12 +32,20 @@ defmodule Lilly.Components.DescriptionList do
         <div class="border-t border-gray-200">
           {#for {row, is_striped} <- Enum.zip(@rows, Stream.cycle([false, @striped]))}
             <div class={"px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6", "bg-gray-300": is_striped}>
-              <dt class={"text-sm font-medium text-gray-500", row.class}>{row.label || row.field}</dt>
+              <dt class={"text-sm font-medium text-gray-500", row.class}>{label_or_field(row)}</dt>
               <dd class={"mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2", row.class}>{@item[row.field]}</dd>
             </div>
           {/for}
         </div>
       </div>
     """
+  end
+
+  defp label_or_field(row) do
+    if row.label == nil do
+      Helpers.humanize(row.field)
+    else
+      Helpers.humanize(row.label)
+    end
   end
 end
