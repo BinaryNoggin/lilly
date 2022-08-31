@@ -54,7 +54,8 @@ defmodule Lilly.MixProject do
       {:phoenix_live_view, "~> 0.17.0", optional: true},
       {:jason, "~> 1.3"},
       {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:surface_formatter, "~> 0.6.0"}
+      {:surface_formatter, "~> 0.6.0"},
+      {:assert_html, "~> 0.1.3", only: [:test]}
     ]
   end
 
