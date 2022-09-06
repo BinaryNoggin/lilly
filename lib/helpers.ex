@@ -9,9 +9,10 @@ defmodule Lilly.Helpers do
       iex> Lilly.Helpers.humanize("user_id")
       "User"
   """
-  @spec humanize(atom | String.t) :: String.t
+  @spec humanize(atom | String.t()) :: String.t()
   def humanize(atom) when is_atom(atom),
     do: humanize(Atom.to_string(atom))
+
   def humanize(bin) when is_binary(bin) do
     bin =
       if String.ends_with?(bin, "_id") do
@@ -20,6 +21,6 @@ defmodule Lilly.Helpers do
         bin
       end
 
-    bin |> String.replace("_", " ") |> String.capitalize
+    bin |> String.replace("_", " ") |> String.capitalize()
   end
 end
